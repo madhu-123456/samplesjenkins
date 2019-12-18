@@ -1,0 +1,70 @@
+#%RAML 1.0
+title: flights_api
+/unitedFlights:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/unitedapi.json
+
+/unitedFlightsByDestination:
+  get:
+    queryParameters:
+      destination:
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/unitedapi.json
+
+/deltaFlights:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/unitedapi.json
+
+/deltaFlightsByDestination:
+  get:
+    queryParameters:
+      destination:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/unitedapi.json
+
+/listAllFlights:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/unitedapi.json
+
+/listAllFlightsByDestination:
+  get:
+    queryParameters:
+      destination:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/unitedapi.json
+                  
+              
+              
+              
+                              
+              
+              
+                    
+              
+
+              
+            
+
+  

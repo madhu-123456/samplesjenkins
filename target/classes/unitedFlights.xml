@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="3da8d03f-61ec-4dad-a53a-f3dbbb508242" >
+		<http:request-connection host="localhost" port="9090" />
+	</http:request-config>
+	<flow name="unitedFlightsFlow" doc:id="12629cd0-e15f-482c-8e58-c61bc6539b8c" >
+		<logger level="INFO" doc:name="Logger" doc:id="01b4349f-065c-4d9c-a7e8-627ef83b5398" message="receive request....."/>
+		<http:request method="GET" doc:name="Request" doc:id="7902fd78-509d-4ecd-bd51-625873ef6415" config-ref="HTTP_Request_configuration" path="/united/flights"/>
+		<logger level="INFO" doc:name="Logger" doc:id="42d9abf8-ef17-436f-956d-56adc042d0c3" message="final response...."/>
+	</flow>
+</mule>

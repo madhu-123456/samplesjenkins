@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="unitedFlightsByDestinationFlow" doc:id="639e9db5-692d-427a-b9fb-2153ba23d5a4" >
+		<logger level="INFO" doc:name="Logger" doc:id="7cde847c-7bdb-4e61-8e64-d90e9d4b8dc1" message="starts..."/>
+		<http:request method="GET" doc:name="Request" doc:id="2a78bdf2-a69d-4351-8515-c3bd9ef1fd8a" config-ref="HTTP_Request_configuration" path="/united/flights/{to}">
+			<http:uri-params ><![CDATA[#[output application/java
+---
+{
+	to : attributes.queryParams.destination
+}]]]></http:uri-params>
+		</http:request>
+		<logger level="INFO" doc:name="Logger" doc:id="09163045-d189-46e0-a62c-f87acd93c766" message="final..."/>
+	</flow>
+</mule>
